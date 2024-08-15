@@ -2,7 +2,7 @@ from airflow.models import DAG
 from airflow.operators.python import PythonOperator
 #from airflow.providers.postgres.operators.postgres import PostgresOperator
 # from airflow.utils.task_group import TaskGroup
-from datetime import datetime
+from datetime import datetime, timedelta
 from sqlalchemy import create_engine #koneksi ke postgres
 import pandas as pd
 
@@ -26,7 +26,7 @@ def load_csv_to_postgres():
 
     df = pd.read_csv('/opt/airflow/dags/P2M3_Heru_data_raw.csv')
     #df.to_sql(nama_table_db, conn, index=False, if_exists='replace')
-    df.to_sql('table_testing', conn, 
+    df.to_sql('table_m3', conn, 
               index=False, 
               if_exists='replace')  # M
     
@@ -46,21 +46,39 @@ def ambil_data():
     engine = create_engine(postgres_url)
     conn = engine.connect()
 
-    df = pd.read_sql_query("select * from table_testing", conn) #nama table sesuaikan sama nama table di postgres
+    df = pd.read_sql_query("select * from table_m3", conn) #nama table sesuaikan sama nama table di postgres
     df.to_csv('/opt/airflow/dags/P2M3_Heru_data_raw_new.csv', sep=',', index=False)
     
 
 
 def preprocessing(): 
-    ''' fungsi untuk membersihkan data
+    ''' Function to clean data '''
     
-    '''
-    # pembisihan data
-    data = pd.read_csv("/opt/airflow/dags/P2M3_Heru_data_raw_new.csv")
+    # Load the data
+    data = pd.read_csv("/opt/airflow/dags/P2M3_Heru_data_raw.csv")
 
-    # bersihkan data 
+    # Drop duplicates
     data.drop_duplicates(inplace=True)
-    # data= data.query('age>=0')
+
+    # Drop rows with missing values
+    data.dropna(inplace=True)
+
+    # Clean column names step by step
+    
+    # Step 1: Convert all column names to lowercase
+    data.columns = data.columns.str.lower()
+    # This ensures all column names are in lowercase to avoid case-sensitivity issues.
+
+    # Step 2: Replace spaces with underscores
+    data.columns = data.columns.str.replace(' ', '_')
+    # This replaces any spaces in the column names with underscores, making them more uniform and easier to reference.
+
+    # Step 3: Remove any tab (\t) and newline (\n) characters from the column names
+    data.columns = data.columns.str.replace(r'[\t\n]', '')
+    # This removes any accidental tab or newline characters from column names, which could have been introduced during data entry.
+
+    
+    # Save cleaned data to a new CSV file
     data.to_csv('/opt/airflow/dags/P2M3_Heru_data_raw_clean.csv', index=False)
     
 def upload_to_elasticsearch():
@@ -69,20 +87,21 @@ def upload_to_elasticsearch():
     
     for i, r in df.iterrows():
         doc = r.to_dict()  # Convert the row to a dictionary
-        res = es.index(index="table_testing", id=i+1, body=doc)
+        res = es.index(index="table_m3", id=i+1, body=doc)
         print(f"Response from Elasticsearch: {res}")
         
 
         
 default_args = {
     'owner': 'Heru', 
-    'start_date': datetime(2023, 12, 24, 12, 00)
+    'start_date': datetime(2024, 8, 14, 12, 00) 
+    # - timedelta(hours=7)
 }
 
 with DAG(
     "P2M3_heru_DAG_hck", #atur sesuai nama project kalian
     description='Milestone_3',
-    schedule_interval='10 5 10 * *', #atur schedule untuk menjalankan airflow pada 06:30.
+    schedule_interval='30 23 * * *', #atur schedule untuk menjalankan airflow pada 06:30.
     default_args=default_args, 
     catchup=False
 ) as dag:

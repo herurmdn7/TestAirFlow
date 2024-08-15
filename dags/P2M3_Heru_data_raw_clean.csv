@@ -1,4 +1,4 @@
-Location,Total Land Area (acres),Number of Cows,Farm Size,Date,Product ID,Product Name,Brand,Quantity (liters/kg),Price per Unit,Total Value,Shelf Life (days),Storage Condition,Production Date,Expiration Date,Quantity Sold (liters/kg),Price per Unit (sold),Approx. Total Revenue(INR),Customer Location,Sales Channel,Quantity in Stock (liters/kg),Minimum Stock Threshold (liters/kg),Reorder Quantity (liters/kg)
+location,total_land_area_(acres),number_of_cows,farm_size,date,product_id,product_name,brand,quantity_(liters/kg),price_per_unit,total_value,shelf_life_(days),storage_condition,production_date,expiration_date,quantity_sold_(liters/kg),price_per_unit_(sold),approx._total_revenue(inr),customer_location,sales_channel,quantity_in_stock_(liters/kg),minimum_stock_threshold_(liters/kg),reorder_quantity_(liters/kg)
 Telangana,310.84,96,Medium,2022-02-17,5,Ice Cream,Dodla Dairy,222.4,85.72,19064.128,25,Frozen,2021-12-27,2022-01-21,7,82.24,575.68,Madhya Pradesh,Wholesale,215,19.55,64.03
 Uttar Pradesh,19.19,44,Large,2021-12-01,1,Milk,Amul,687.48,42.61,29293.5228,22,Tetra Pack,2021-10-03,2021-10-25,558,39.24,21895.92,Kerala,Wholesale,129,43.17,181.1
 Tamil Nadu,581.69,24,Medium,2022-02-28,4,Yogurt,Dodla Dairy,503.48,36.5,18377.02,30,Refrigerated,2022-01-14,2022-02-13,256,33.81,8655.36,Madhya Pradesh,Online,247,15.1,140.83
@@ -225,7 +225,6 @@ Rajasthan,280.28,55,Large,2020-01-14,8,Buttermilk,Mother Dairy,102.05,52.36,5343
 Tamil Nadu,274.74,24,Large,2020-02-16,1,Milk,Amul,933.28,46.59,43481.5152,25,Tetra Pack,2020-02-07,2020-03-03,485,44.83,21742.55,Madhya Pradesh,Wholesale,448,82.71,174.08
 Delhi,522.08,97,Large,2022-09-10,3,Cheese,Passion Cheese,207.35,96.89,20090.1415,50,Frozen,2022-08-23,2022-10-12,67,97.48,6531.16,Gujarat,Wholesale,140,67.77,95.38
 Jharkhand,218.43,12,Small,2019-03-03,3,Cheese,Dynamix Dairies,387.24,61.66,23877.2184,51,Frozen,2019-01-24,2019-03-16,70,58.3,4081.0,Jharkhand,Wholesale,317,91.37,34.8
-Kerala,210.89,59,Large,2019-05-22,10,Ghee,Raj,918.94,47.46,43612.8924,98,Ambient,2019-04-14,2019-07-21,345,44.01,15183.45,Gujarat,Online,573,98.71,78.95
 Delhi,550.51,18,Large,2020-07-15,1,Milk,Mother Dairy,946.88,65.09,61632.4192,2,Polythene Packet,2020-06-28,2020-06-30,658,69.31,45605.98,Bihar,Wholesale,288,98.86,176.89
 Chandigarh,217.49,78,Medium,2021-05-22,7,Lassi,Mother Dairy,113.75,67.47,7674.7125,15,Refrigerated,2021-04-19,2021-05-04,42,67.63,2840.46,Rajasthan,Retail,71,42.03,98.04
 Rajasthan,781.33,78,Medium,2022-07-22,5,Ice Cream,Amul,648.17,50.34,32628.8778,26,Frozen,2022-06-30,2022-07-26,155,48.09,7453.95,Haryana,Retail,493,41.66,165.89
@@ -2493,6 +2492,7 @@ Uttar Pradesh,669.41,70,Large,2020-11-22,1,Milk,Sudha,77.9,14.63,1139.677,2,Poly
 Chandigarh,147.67,17,Medium,2021-09-21,5,Ice Cream,Mother Dairy,144.18,11.33,1633.5594,28,Frozen,2021-09-02,2021-09-30,51,11.14,568.14,Chandigarh,Wholesale,93,90.89,124.7
 Chandigarh,698.48,66,Small,2021-06-01,5,Ice Cream,Palle2patnam,198.71,99.12,19696.1352,23,Frozen,2021-05-26,2021-06-18,111,98.39,10921.29,Maharashtra,Wholesale,87,30.35,80.72
 Karnataka,182.47,17,Medium,2019-05-15,9,Paneer,Mother Dairy,725.54,31.07,22542.5278,7,Refrigerated,2019-05-06,2019-05-13,214,28.09,6011.26,Telangana,Online,511,62.99,34.56
+Kerala,210.89,59,Large,2019-05-22,10,Ghee,Raj,918.94,47.46,43612.8924,98,Ambient,2019-04-14,2019-07-21,345,44.01,15183.45,Gujarat,Online,573,98.71,78.95
 Tamil Nadu,526.75,83,Medium,2019-04-25,4,Yogurt,Amul,718.41,55.5,39871.755,24,Frozen,2019-04-12,2019-05-06,615,53.94,33173.1,Delhi,Retail,103,34.91,192.67
 Jharkhand,672.48,40,Medium,2022-11-14,5,Ice Cream,Amul,333.69,97.86,32654.9034,26,Frozen,2022-09-21,2022-10-17,1,99.45,99.45,Bihar,Retail,332,58.52,171.65
 Rajasthan,316.61,15,Medium,2021-11-18,9,Paneer,Mother Dairy,164.37,25.82,4244.0334,9,Refrigerated,2021-11-02,2021-11-11,46,23.32,1072.72,Uttar Pradesh,Online,118,39.84,120.15
