@@ -1,9 +1,16 @@
 '''
 
-Import Libraries
+Milestone 3
+
+Nama  : Heru
+Batch : HCK-018
+
+This program is designed to automate the process of loading CSV data into PostgreSQL, 
+then retrieving the data from PostgreSQL for preprocessing to clean and transform it, and finally uploading the processed data into Elasticsearch
+
 
 '''
-
+# Import Libraries
 # Libraries for DAG from airflow
 from airflow.models import DAG
 
